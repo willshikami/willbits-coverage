@@ -73,7 +73,7 @@ class AddBeneficiary extends StatelessWidget {
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 24,
+                        radius: 26,
                         backgroundImage: AssetImage('assets/avatar.png'),
                         backgroundColor: Colors.green[100],
                       ),
