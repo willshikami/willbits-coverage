@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AddBeneficiary extends StatelessWidget {
+  void showContactBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return BottomSheet();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,7 +111,8 @@ class AddBeneficiary extends StatelessWidget {
                           ),
                         ),
                         onTap: () => {
-                          Navigator.pushNamed(context, '/addcontact'),
+                          showContactBottomSheet(context)
+                          // Navigator.pushNamed(context, '/addcontact'),
                         },
                       ),
                     ],
@@ -114,5 +124,15 @@ class AddBeneficiary extends StatelessWidget {
         ),
       ),
     ));
+  }
+}
+
+class BottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.4,
+      child: Text('data'),
+    );
   }
 }
