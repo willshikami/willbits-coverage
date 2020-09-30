@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:willbits_coverage/ui/addbeneficiary.dart';
+import 'package:willbits_coverage/ui/selectcontact.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Add Beneficiary',
-      home: AddBeneficiary(),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => AddBeneficiary(),
+        '/addcontact': (context) => AddContactBottomSheet(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

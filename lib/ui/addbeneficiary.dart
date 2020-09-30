@@ -72,30 +72,38 @@ class AddBeneficiary extends StatelessWidget {
                   color: Colors.green[50],
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        radius: 26,
-                        backgroundImage: AssetImage('assets/avatar.png'),
-                        backgroundColor: Colors.green[100],
+                      Container(
+                        child: Image(
+                          width: 56,
+                          height: 56,
+                          image: AssetImage('assets/avatar.png'),
+                        ),
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Container(
-                          height: 40,
-                          width: 200,
-                          color: Colors.green[100],
-                          child: Center(
-                            child: Text(
-                              'Add a trusted contact',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                      GestureDetector(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(24),
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            color: Colors.green[100],
+                            child: Center(
+                              child: Text(
+                                'Add a trusted contact',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Colors.green,
+                                ),
                               ),
                             ),
                           ),
                         ),
+                        onTap: () => {
+                          Navigator.pushNamed(context, '/addcontact'),
+                        },
                       ),
                     ],
                   ),
