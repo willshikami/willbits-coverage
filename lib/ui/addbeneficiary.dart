@@ -91,7 +91,7 @@ class AddBeneficiary extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      GestureDetector(
+                      InkWell(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(24),
                           child: Container(
@@ -131,8 +131,31 @@ class BottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.4,
-      child: Text('data'),
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              child: Text(
+                'Existing contacts',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black26,
+                ),
+              ),
+            ),
+            Container(
+              child: Image(
+                width: 36,
+                height: 36,
+                image: AssetImage('assets/avatar.png'),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

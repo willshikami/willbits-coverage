@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Add Beneficiary',
-      initialRoute: '/home',
+      initialRoute: '/addbeneficiary',
       routes: {
-        '/home': (context) => AddBeneficiary(),
+        '/addbeneficiary': (context) => AddBeneficiary(),
         '/addcontact': (context) => AddContactBottomSheet(),
       },
       debugShowCheckedModeBanner: false,
