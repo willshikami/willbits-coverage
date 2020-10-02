@@ -146,12 +146,16 @@ class BottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              child: Image(
-                width: 36,
-                height: 36,
-                image: AssetImage('assets/avatar.png'),
-              ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    ProfileAvatar(),
+                    Text('Alex Anderson'),
+
+                  ],
+                )
+              ],
             ),
           ],
         ),
@@ -159,3 +163,18 @@ class BottomSheet extends StatelessWidget {
     );
   }
 }
+
+class ProfileAvatar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Image(
+        width: 36,
+        height: 36,
+        image: AssetImage('assets/avatar.png'),
+      ),
+    );
+  }
+}
+
+class UserLists
