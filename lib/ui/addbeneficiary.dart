@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:willbits_coverage/ui/showusers.dart';
 
 class AddBeneficiary extends StatelessWidget {
   void showContactBottomSheet(BuildContext context) {
@@ -146,17 +147,7 @@ class BottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    ProfileAvatar(),
-                    Text('Alex Anderson'),
-
-                  ],
-                )
-              ],
-            ),
+            UsersList(),
           ],
         ),
       ),
@@ -176,5 +167,3 @@ class ProfileAvatar extends StatelessWidget {
     );
   }
 }
-
-class UserLists
