@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:willbits_coverage/logic/loadusersapi.dart';
-import 'package:willbits_coverage/logic/usermodal.dart';
+import 'package:willbits_coverage/logic/user_service.dart';
+import 'package:willbits_coverage/logic/user_modal.dart';
 
 class UsersList extends StatefulWidget {
   @override
@@ -11,19 +11,20 @@ class UsersList extends StatefulWidget {
 class _UserListState extends State<UsersList> {
   Future<User> loadUsers;
 
-  @override
-  void initState() {
-    super.initState();
-    loadUsers = fetchUsers();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   print(loadUsers);
+  //   loadUsers = fetchUsers();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder(
-        future: loadUsers,
+      child: FutureBuilder<User>(
+        future: fetchUsers(),
         builder: (context, snapshot) {
-          // print(snapshot.data.name);
+          print(snapshot.data.name[1]);
           if (snapshot.hasData) {
             return Container(
               child: Column(
@@ -31,7 +32,7 @@ class _UserListState extends State<UsersList> {
                   Row(
                     children: [
                       ProfileAvatar(),
-                      Text(snapshot.data.name),
+                      Text(''),
                     ],
                   ),
                 ],
