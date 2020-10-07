@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:willbits_coverage/ui/addbeneficiary.dart';
-import 'package:willbits_coverage/ui/selectcontact.dart';
+import 'package:willbits_coverage/ui/add_beneficiary.dart';
+import 'package:willbits_coverage/ui/select_contact.dart';
 
 void main() {
   runApp(MyApp());

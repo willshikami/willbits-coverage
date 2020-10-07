@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:willbits_coverage/logic/user_service.dart';
 import 'package:willbits_coverage/logic/user_modal.dart';
@@ -9,41 +8,34 @@ class UsersList extends StatefulWidget {
 }
 
 class _UserListState extends State<UsersList> {
-  Future<User> loadUsers;
+  bool _loading;
+  List<User> _loadedUsers;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   print(loadUsers);
-  //   loadUsers = fetchUsers();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _loading = true;
+    UserService.getUsers().then((users) {
+      setState(() {
+        _loadedUsers = users;
+        _loading = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder<User>(
-        future: fetchUsers(),
-        builder: (context, snapshot) {
-          print(snapshot.data.name[1]);
-          if (snapshot.hasData) {
-            return Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      ProfileAvatar(),
-                      Text(''),
-                    ],
-                  ),
-                ],
-              ),
+      child: ListView.builder(
+          itemCount: _loadedUsers == null ? 0 : _loadedUsers.length,
+          itemBuilder: (context, index) {
+            User user = _loadedUsers[index];
+            return ListTile(
+              leading: ProfileAvatar(),
+              title: Text(user.name),
+              trailing: Icon(Icons.chevron_right_rounded),
             );
-          } else if (snapshot.hasError) {
-            return Text('$snapshot.error');
-          }
-          return CircularProgressIndicator();
-        },
-      ),
+          }),
     );
   }
 }
