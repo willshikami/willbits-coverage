@@ -27,14 +27,18 @@ class _UserListState extends State<UsersList> {
   Widget build(BuildContext context) {
     return Container(
       child: ListView.builder(
-          itemCount: _loadedUsers == null ? 0 : _loadedUsers.length,
+          itemCount: _loadedUsers.length,
           itemBuilder: (context, index) {
             User user = _loadedUsers[index];
-            return ListTile(
-              leading: ProfileAvatar(),
-              title: Text(user.name),
-              trailing: Icon(Icons.chevron_right_rounded),
-            );
+            print(
+                '=============================== $_loadedUsers  ================================');
+            return _loadedUsers == null
+                ? _loading
+                : ListTile(
+                    leading: ProfileAvatar(),
+                    title: Text(user.name),
+                    trailing: Icon(Icons.chevron_right_rounded),
+                  );
           }),
     );
   }
