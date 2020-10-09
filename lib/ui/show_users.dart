@@ -8,7 +8,7 @@ class UsersList extends StatefulWidget {
 }
 
 class _UserListState extends State<UsersList> {
-  bool _loading;
+  bool _loading = false;
   List<User> _loadedUsers;
 
   @override
@@ -25,20 +25,27 @@ class _UserListState extends State<UsersList> {
 
   @override
   Widget build(BuildContext context) {
+    if (_loadedUsers == null) {
+      return Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+        ),
+      );
+    }
+
     return Container(
       child: ListView.builder(
-          itemCount: _loadedUsers.length,
+          shrinkWrap: true,
+          itemCount: _loadedUsers == null ? 0 : _loadedUsers.length,
           itemBuilder: (context, index) {
             User user = _loadedUsers[index];
-            print(
-                '=============================== $_loadedUsers  ================================');
-            return _loadedUsers == null
-                ? _loading
-                : ListTile(
-                    leading: ProfileAvatar(),
-                    title: Text(user.name),
-                    trailing: Icon(Icons.chevron_right_rounded),
-                  );
+            // print(
+            //     '=============================== $_loadedUsers  ================================');
+            return ListTile(
+              leading: ProfileAvatar(),
+              title: Text(user.name),
+              trailing: Icon(Icons.chevron_right_rounded),
+            );
           }),
     );
   }

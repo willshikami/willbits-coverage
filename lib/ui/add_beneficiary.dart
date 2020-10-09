@@ -135,20 +135,23 @@ class BottomSheet extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              child: Text(
-                'Existing contacts',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black26,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                child: Text(
+                  'Existing contacts',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black26,
+                  ),
                 ),
               ),
-            ),
-            UsersList(),
-          ],
+              UsersList(),
+            ],
+          ),
         ),
       ),
     );
