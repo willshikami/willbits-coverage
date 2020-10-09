@@ -8,17 +8,14 @@ class UsersList extends StatefulWidget {
 }
 
 class _UserListState extends State<UsersList> {
-  bool _loading = false;
   List<User> _loadedUsers;
 
   @override
   void initState() {
     super.initState();
-    _loading = true;
     UserService.getUsers().then((users) {
       setState(() {
         _loadedUsers = users;
-        _loading = false;
       });
     });
   }
@@ -39,8 +36,7 @@ class _UserListState extends State<UsersList> {
           itemCount: _loadedUsers == null ? 0 : _loadedUsers.length,
           itemBuilder: (context, index) {
             User user = _loadedUsers[index];
-            // print(
-            //     '=============================== $_loadedUsers  ================================');
+
             return ListTile(
               leading: ProfileAvatar(),
               title: Text(user.name),
