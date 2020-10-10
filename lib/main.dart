@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:willbits_coverage/ui/add_beneficiary.dart';
+import 'package:willbits_coverage/ui/coverage.dart';
 import 'package:willbits_coverage/ui/select_contact.dart';
 
 void main() {
@@ -11,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Add Beneficiary',
-      initialRoute: '/addbeneficiary',
+      title: 'Add Coverage',
+      initialRoute: '/addcoverage',
       routes: {
+        '/addcoverage': (context) => AddCoverage(),
         '/addbeneficiary': (context) => AddBeneficiary(),
         '/addcontact': (context) => AddContactBottomSheet(),
       },

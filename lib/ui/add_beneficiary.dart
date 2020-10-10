@@ -4,6 +4,9 @@ import 'package:willbits_coverage/ui/show_users.dart';
 class AddBeneficiary extends StatelessWidget {
   void showContactBottomSheet(BuildContext context) {
     showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
       context: context,
       builder: (ctx) {
         return BottomSheet();
@@ -23,13 +26,14 @@ class AddBeneficiary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: Icon(
-                      Icons.chevron_left,
-                      color: Colors.black,
-                      size: 32,
-                    ),
-                    onPressed: null,
-                  ),
+                      icon: Icon(
+                        Icons.chevron_left,
+                        color: Colors.black,
+                        size: 32,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
                   IconButton(
                       icon: Icon(
                         Icons.more_vert,
@@ -112,8 +116,7 @@ class AddBeneficiary extends StatelessWidget {
                           ),
                         ),
                         onTap: () => {
-                          showContactBottomSheet(context)
-                          // Navigator.pushNamed(context, '/addcontact'),
+                          showContactBottomSheet(context),
                         },
                       ),
                     ],
@@ -141,15 +144,34 @@ class BottomSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
+                padding: EdgeInsets.all(16),
                 child: Text(
                   'Existing contacts',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black26,
+                    color: Colors.black38,
                   ),
                 ),
               ),
               UsersList(),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Add to Catch',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: ProfileAvatar(),
+                title: Text('New Contact'),
+                trailing: Icon(Icons.chevron_right_rounded),
+              ),
             ],
           ),
         ),
